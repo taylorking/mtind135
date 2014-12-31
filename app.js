@@ -17,7 +17,7 @@ server.get('/start', function(req,res) {
   res.send();
 });
 server.get('/weight', function(req,res) {
-  console.log(req);
+  weight = req.query.weight;
   res.send();
 });
 server.get('/stop', function(req, res) {
