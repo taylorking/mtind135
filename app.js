@@ -26,18 +26,14 @@ server.get('/stop', function(req, res) {
   res.send();
 });
 server.listen(3000);
-
-var client = new net.Socket();
-
-
 // Start the TCP Socket. 
- var socklistener = net.createServer(function(sock) {
-  while(started) 
-    {
-      sock.write(" 1(  " + weight + "    00\r");
-    }
-   sock.on('close', function(data) {
+net.createServer(function(sock) {
+  
+  
+  setInterval(function() { 
+    sock.write(" 1(  " + weight + "    00\r");
+  }, 100);
+    sock.on('close', function(data) {
     console.log("Socket closed");
   });
-});
-socklistener.listen(port, host);
+}).listen(port, host);
